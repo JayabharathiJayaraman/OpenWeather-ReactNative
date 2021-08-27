@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "openweathermap",
+    "slug": "openweathermap",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "openweathermap"
+}
