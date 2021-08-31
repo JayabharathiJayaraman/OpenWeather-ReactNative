@@ -3,9 +3,9 @@ import { TextInput,Button,Card} from 'react-native-paper';
 import {View,Text,FlatList} from 'react-native'
 import Header from './Header'
 import AsyncStorage from '@react-native-community/async-storage';
-import IonIcon from 'react-native-vector-icons/Ionicons'
 
-const Search = ({navigation})=> {
+
+function Search ({navigation}) {
     const [city,setCity] = useState('')
     const [cities,setCities] = useState([])
     const fetchCities = (text)=>{
@@ -27,18 +27,17 @@ const Search = ({navigation})=> {
     }
     return (
      <View style={{flex:1}}>
-         <Header name="Search" /><br></br>
-          <TextInput
+         <Header name="Search" />
+         <TextInput
            label="City Name"
-           style={{ height: 80, width: 180, borderColor: 'rgb(5, 51, 66)', borderWidth: 1 }}
+           style={{ marginLeft: 450,marginTop: 30, height: 80, width: 500, borderColor: 'rgb(5, 51, 66)', borderWidth: 1 }}
            theme={{colors:{primary:"rgb(5, 51, 66)"}}}
            value={city}
            onChangeText={(text)=>fetchCities(text)}
           />
           <Button
-           icon="content-save"
            mode="contained" 
-           style={{height: 50, width: 150, borderColor: 'rgb(5, 51, 66)', borderWidth: 1 }}
+           style={{marginLeft: 650, marginTop:5, height: 35, width: 100, borderColor: 'rgb(5, 51, 66)', borderWidth: 1 }}
            theme={{colors:{primary:"rgb(66, 122, 141)"}}}
 
            onPress={() => btnClick()}>

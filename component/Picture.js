@@ -5,7 +5,7 @@ const Picture = () => {
 return(
     
         <Image
-            source = { require('../assets/background/img/haze.png')} style = {styles.container}>
+            source = { require('../assets/background/img/haze.png')} style = {styles.image}>
         </Image>
     
 );
@@ -13,11 +13,11 @@ return(
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    width: null,
-    height: null,
-  },
+  image:{
+    flex:1, 
+    resizeMode:"cover", 
+    justifyContent:"center"
+  }
 
 });
 
