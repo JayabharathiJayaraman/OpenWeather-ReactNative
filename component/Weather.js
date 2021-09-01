@@ -4,6 +4,7 @@ import {View,Image, StyleSheet,Text, ImageBackground} from 'react-native'
 import Header from './Header'
 import AsyncStorage from '@react-native-community/async-storage';
 import configData from '../config.json'; 
+import { Context } from '../context/Context';
 
 const apiKey = configData.API_KEY; 
 
@@ -52,7 +53,9 @@ const Weather = (props)=>{
     }
     return(
     <>
-            <Header name="Weather App" />
+            <Context.Provider value = "Weather App">
+            <Header />
+            </Context.Provider>
            <View style={{alignItems:"center"}}>
                <Title 
                style={{

@@ -3,6 +3,7 @@ import { TextInput,Button,Card} from 'react-native-paper';
 import {View,Text,FlatList} from 'react-native'
 import Header from './Header'
 import AsyncStorage from '@react-native-community/async-storage';
+import { Context } from '../context/Context';
 
 
 function Search ({navigation}) {
@@ -27,7 +28,9 @@ function Search ({navigation}) {
     }
     return (
      <View style={{flex:1}}>
-         <Header name="Search" />
+         <Context.Provider value = "Search City">
+         <Header/>
+         </Context.Provider>
          <TextInput
            label="City Name"
            style={{ marginLeft: 450,marginTop: 30, height: 80, width: 500, borderColor: 'rgb(5, 51, 66)', borderWidth: 1 }}

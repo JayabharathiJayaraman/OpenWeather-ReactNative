@@ -1,26 +1,23 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import { Appbar ,Title} from 'react-native-paper';
-import {View,Text} from 'react-native'
+import { Context } from '../context/Context';
 
-function Header (props) {
-
+const Header = () => {
+const value = useContext(Context);
     return (
       <Appbar.Header 
       theme={{
           colors:{
-              primary:"rgb(66, 122, 141)",
-             
+              primary:"rgb(66, 122, 141)",      
           }
       
       }}
       style={{flexDirection:"row",justifyContent:"center"}}
       >
        <Title style={{color:"white"}}>
-           {props.name}
+           {value}
        </Title>
-        
       </Appbar.Header>
     )
- 
 }
 export default Header
