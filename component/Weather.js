@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import { Card,Title} from 'react-native-paper';
-import {View,Image} from 'react-native'
+import {Title} from 'react-native-paper';
+import {View,Image, StyleSheet,Text, ImageBackground} from 'react-native'
 import Header from './Header'
 import AsyncStorage from '@react-native-community/async-storage';
-import Picture from './Picture'
 import configData from '../config.json'; 
 
 const apiKey = configData.API_KEY; 
@@ -14,7 +13,9 @@ const Weather = (props)=>{
         temp:"loading",
         humidity:"loading",
         desc:"loading",
-        icon:"loading"
+        icon:"loading",
+        sunrise:"loading",
+        sunset:"loading"
     })
     useEffect(()=>{
        getWeather()
@@ -31,25 +32,27 @@ const Weather = (props)=>{
      
      .then(data=>data.json())
      .then(results=>{
+        console.log('res',results)
         setInfo({
             name:results.name,
             temp:results.main.temp,
             humidity:results.main.humidity,
             desc:results.weather[0].description,
             icon:results.weather[0].icon,
+            sunrise:results.sys.sunrise,
+            sunset:results.sys.sunset
         })
      })
      .catch(err=>{
-         alert(err.message)
+         alert("Please enter the correct city")
      })
     }
     if(props.route.params.city != "london"){
         getWeather()
     }
     return(
-        <View style={{flex:1}}>
+    <>
             <Header name="Weather App" />
-            <Picture></Picture>
            <View style={{alignItems:"center"}}>
                <Title 
                style={{
@@ -69,28 +72,33 @@ const Weather = (props)=>{
                />
 
            </View>
-
-           <Card style={{
-               margin:5,
-               padding:12
-           }}>
-           <Title style={{color:"rgb(66, 122, 141)"}}>Temperature - {info.temp}</Title>
-           </Card>
-           <Card style={{
-               margin:5,
-               padding:12
-           }}>
-           <Title style={{color:"rgb(66, 122, 141)"}}>Humidity - {info.humidity}</Title>
-           </Card>
-           <Card style={{
-               margin:5,
-               padding:12
-           }}>
-           <Title style={{color:"rgb(66, 122, 141)"}}>Description-  {info.desc}</Title>
-           </Card>
+           <View style={styles.container}>
+            <ImageBackground source={require('../assets/background/img/haze.png')} style={styles.image}>
+            <Text style={styles.temp}>Temperature - {info.temp}</Text>
+            <Text  style={styles.temp}>Humidity - {info.humidity}</Text>
+            <Text  style={styles.temp}>Description - {info.desc}</Text>
+            <Text  style={styles.temp}>SunRise - {Date(info.sunrise * 1000)}</Text>
+            <Text  style={styles.temp}>SunSet - {Date(info.sunset * 1000)}</Text>
+            </ImageBackground>
         </View>
+        </>
     )
 }
+const styles = StyleSheet.create({
+    image: {
+        flex:1, 
+        resizeMode:"cover", 
+        justifyContent:"center"
+    }, 
+    container: {
+        flex: 1,
+      },
+    temp: {
+        color:'white',
+        fontSize:30,
+        textAlign:"left"
+    }
+})
 
 
 export default Weather
