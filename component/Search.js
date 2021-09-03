@@ -5,7 +5,7 @@ import Header from './Header';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Context } from '../context/Context';
 
-function Search({ navigation }) {
+const Search = ({ navigation }) => {
     const [city, setCity] = useState('')
     const [cities, setCities] = useState([])
 
@@ -31,6 +31,7 @@ function Search({ navigation }) {
 
     return (
         <View style={{ flex: 1 }}>
+            {/* useContext */}
             <Context.Provider value="Search City">
                 <Header />
             </Context.Provider>

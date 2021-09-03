@@ -3,6 +3,8 @@ import { Appbar, Title } from 'react-native-paper';
 import { Context } from '../context/Context';
 
 const Header = () => {
+
+  //useContext
   const value = useContext(Context);
   return (
     <Appbar.Header

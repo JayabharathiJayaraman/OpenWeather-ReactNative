@@ -7,7 +7,7 @@ import configData from '../config.json';
 import { Context } from '../context/Context';
 
 const apiKey = configData.API_KEY;
-
+// function component with props
 function Weather(props) {
     const [info, setInfo] = useState({
         name: "loading !!",

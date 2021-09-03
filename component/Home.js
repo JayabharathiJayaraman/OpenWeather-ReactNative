@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from 'react-native-paper';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
 
 const Home = () => {
     return (
@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
         color: 'rgb(66, 122, 141)',
         fontSize: 25,
         textAlign: "center",
+    },
+    image: {
+        width: "50",
+        height: "100",
     }
 })
 
