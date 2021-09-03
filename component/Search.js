@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, Button, Card } from 'react-native-paper';
-import { View, Text, FlatList } from 'react-native'
-import Header from './Header'
+import { View, Text, FlatList } from 'react-native';
+import Header from './Header';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Context } from '../context/Context';
 
