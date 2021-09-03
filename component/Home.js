@@ -1,12 +1,12 @@
 import React from 'react';
 import { Title } from 'react-native-paper';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground } from 'react-native';
 
-const Home = () => {
+const Home = (props) => {
     return (
         <>
             <View>
-                <Title style={styles.text}> Here you can search for any Country or City. And it shows the current weather report.</Title>
+                <Title style={styles.text}>{props.home}</Title>
             </View>
         </>
     )

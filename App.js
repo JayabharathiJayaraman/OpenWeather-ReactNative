@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor="#00aaff" />
-      <Home></Home>
+      <Home home="Here you can search for any Country or City. And it shows the current weather report."></Home>
       <Footer></Footer>
     </>
   );
